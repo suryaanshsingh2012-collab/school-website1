@@ -1,0 +1,949 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DBRA CM SHRI School | Sector 19, Dwarka</title>
+
+  <style>
+    :root {
+      --navy:#0b1f3a;
+      --blue:#155e9c;
+      --gold:#f5b942;
+      --ink:#1f344b;
+      --muted:#61758a;
+      --line:#dbe6ef;
+      --bg:#f5f8fc;
+      --white:#fff;
+      --green:#157347;
+    }
+
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+
+    body {
+      margin:0;
+      color:var(--ink);
+      background:var(--bg);
+      font-family:"Segoe UI",Arial,sans-serif;
+      line-height:1.6;
+    }
+
+    .notice {
+      padding:8px 18px;
+      color:#164267;
+      background:#eaf5ff;
+      text-align:center;
+      font-size:.85rem;
+      font-weight:700;
+    }
+
+    header {
+      color:var(--white);
+      background:var(--navy);
+    }
+
+    .header-inner {
+      display:flex;
+      align-items:center;
+      gap:14px;
+      width:min(1120px,calc(100% - 32px));
+      margin:auto;
+      padding:15px 0;
+    }
+
+    .logo {
+      display:block;
+      width:58px;
+      height:58px;
+      padding:3px;
+      border-radius:50%;
+      background:var(--white);
+      object-fit:contain;
+    }
+
+    .brand strong,
+    .brand small {
+      display:block;
+    }
+
+    .brand strong { font-size:1.05rem; }
+
+    .brand small {
+      color:#bfd5ea;
+      font-size:.8rem;
+    }
+
+    nav {
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:4px;
+      padding:0 16px 16px;
+    }
+
+    nav a {
+      padding:9px 12px;
+      border-radius:7px;
+      color:#dcecff;
+      font-size:.92rem;
+      font-weight:800;
+      text-decoration:none;
+    }
+
+    nav a:hover {
+      color:var(--navy);
+      background:var(--gold);
+    }
+
+    main {
+      width:min(1120px,calc(100% - 32px));
+      margin:32px auto 60px;
+    }
+
+    section {
+      margin-top:28px;
+      padding:clamp(26px,4vw,42px);
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:var(--white);
+      box-shadow:0 10px 25px rgba(11,31,58,.05);
+    }
+
+    .hero {
+      display:grid;
+      grid-template-columns:1.25fr .75fr;
+      gap:35px;
+      align-items:center;
+      overflow:hidden;
+      min-height:430px;
+      padding:clamp(35px,6vw,75px);
+      border:0;
+      color:var(--white);
+      background:
+        radial-gradient(circle at 88% 20%,rgba(245,185,66,.27),transparent 24%),
+        linear-gradient(125deg,#0b1f3a,#155e9c);
+      box-shadow:0 18px 40px rgba(11,31,58,.2);
+    }
+
+    .eyebrow {
+      margin:0 0 12px;
+      color:var(--gold);
+      font-size:.79rem;
+      font-weight:900;
+      letter-spacing:2px;
+    }
+
+    .hero h1 {
+      max-width:690px;
+      margin:0;
+      font-size:clamp(2.25rem,5vw,4.1rem);
+      line-height:1.04;
+      letter-spacing:-2px;
+    }
+
+    .hero h1 span { color:var(--gold); }
+
+    .hero-text {
+      max-width:610px;
+      margin:20px 0 28px;
+      color:#e6f3ff;
+      font-size:1.08rem;
+    }
+
+    .button {
+      display:inline-block;
+      padding:13px 19px;
+      border:0;
+      border-radius:9px;
+      color:var(--navy);
+      background:var(--gold);
+      font:inherit;
+      font-weight:900;
+      text-decoration:none;
+      cursor:pointer;
+      transition:.2s;
+    }
+
+    .button:hover {
+      transform:translateY(-2px);
+      background:var(--white);
+    }
+
+    .hero-graphic {
+      position:relative;
+      display:grid;
+      min-height:285px;
+      place-items:center;
+      border:1px solid rgba(255,255,255,.2);
+      border-radius:20px;
+      background:rgba(255,255,255,.1);
+    }
+
+    .hero-graphic::before {
+      position:absolute;
+      top:28px;
+      right:30px;
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      background:var(--gold);
+      box-shadow:0 0 0 15px rgba(245,185,66,.12);
+      content:"";
+    }
+
+    .hero-logo {
+      position:relative;
+      z-index:1;
+      display:grid;
+      width:155px;
+      height:155px;
+      place-items:center;
+      overflow:hidden;
+      border:7px solid rgba(255,255,255,.9);
+      border-radius:50%;
+      background:var(--white);
+      box-shadow:0 14px 30px rgba(0,0,0,.18);
+    }
+
+    .hero-logo img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .school-card {
+      position:absolute;
+      right:20px;
+      bottom:22px;
+      left:20px;
+      padding:24px;
+      border-radius:15px;
+      background:var(--white);
+      box-shadow:0 14px 26px rgba(0,0,0,.18);
+    }
+
+    .school-card p {
+      margin:0;
+      color:var(--blue);
+      font-size:.76rem;
+      font-weight:900;
+      letter-spacing:1.5px;
+    }
+
+    .school-card h2 {
+      margin:8px 0 3px;
+      color:var(--navy);
+      font-size:1.35rem;
+      line-height:1.2;
+    }
+
+    .school-card small { color:var(--muted); }
+
+    .heading {
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:20px;
+      margin-bottom:25px;
+    }
+
+    .heading h2 {
+      margin:0;
+      color:var(--navy);
+      font-size:clamp(1.65rem,3vw,2.25rem);
+      letter-spacing:-.8px;
+    }
+
+    .heading p {
+      max-width:570px;
+      margin:6px 0 0;
+      color:var(--muted);
+    }
+
+    .facts {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+    }
+
+    .fact {
+      padding:20px;
+      border:1px solid var(--line);
+      border-radius:13px;
+      background:#fbfdff;
+    }
+
+    .fact span {
+      display:block;
+      margin-bottom:7px;
+      color:var(--blue);
+      font-size:.75rem;
+      font-weight:900;
+      letter-spacing:1px;
+      text-transform:uppercase;
+    }
+
+    .fact strong {
+      color:var(--navy);
+      font-size:1.03rem;
+      line-height:1.35;
+    }
+
+    .features {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .feature {
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:14px;
+    }
+
+    .feature-top {
+      display:grid;
+      min-height:130px;
+      place-items:center;
+      color:var(--white);
+      background:linear-gradient(135deg,#155e9c,#0b1f3a);
+      font-size:2.6rem;
+    }
+
+    .feature:nth-child(2) .feature-top {
+      background:linear-gradient(135deg,#157347,#0b6b6b);
+    }
+
+    .feature:nth-child(3) .feature-top {
+      background:linear-gradient(135deg,#9a6b14,#5b4200);
+    }
+
+    .feature-body { padding:20px; }
+
+    .feature h3 {
+      margin:0 0 8px;
+      color:var(--navy);
+    }
+
+    .feature p {
+      margin:0;
+      color:var(--muted);
+    }
+
+    .updates {
+      display:grid;
+      gap:13px;
+    }
+
+    .update {
+      display:flex;
+      gap:18px;
+      align-items:flex-start;
+      padding:18px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      background:#fbfdff;
+    }
+
+    .number {
+      display:grid;
+      flex:0 0 35px;
+      width:35px;
+      height:35px;
+      place-items:center;
+      border-radius:50%;
+      color:var(--navy);
+      background:var(--gold);
+      font-weight:900;
+    }
+
+    .update h3 {
+      margin:0 0 4px;
+      color:var(--navy);
+    }
+
+    .update p {
+      margin:0;
+      color:var(--muted);
+    }
+
+    .form-grid {
+      display:grid;
+      grid-template-columns:1fr .7fr;
+      gap:35px;
+      align-items:start;
+    }
+
+    form {
+      display:grid;
+      gap:10px;
+    }
+
+    label {
+      margin-top:6px;
+      color:var(--navy);
+      font-size:.9rem;
+      font-weight:800;
+    }
+
+    input {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid #b9c9d7;
+      border-radius:9px;
+      color:var(--ink);
+      background:#fbfdff;
+      font:inherit;
+    }
+
+    input:focus {
+      border-color:var(--blue);
+      outline:3px solid #d8edfc;
+    }
+
+    .form-note {
+      padding:23px;
+      border-left:5px solid var(--gold);
+      border-radius:10px;
+      background:#fffaf0;
+    }
+
+    .form-note h3 {
+      margin-top:0;
+      color:var(--navy);
+    }
+
+    .form-note p:last-child {
+      margin-bottom:0;
+      color:var(--muted);
+    }
+
+    .form-message {
+      min-height:24px;
+      margin:8px 0 0;
+      color:var(--green);
+      font-weight:800;
+    }
+
+    .sources {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .source {
+      display:block;
+      padding:19px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      color:var(--navy);
+      background:#fbfdff;
+      font-weight:800;
+      text-decoration:none;
+    }
+
+    .source small {
+      display:block;
+      margin-top:5px;
+      color:var(--muted);
+      font-weight:400;
+    }
+
+    .source:hover {
+      border-color:var(--blue);
+      background:#eaf5ff;
+    }
+
+    footer {
+      padding:32px 20px;
+      color:#c8dced;
+      background:var(--navy);
+      text-align:center;
+    }
+
+    footer p {
+      max-width:800px;
+      margin:7px auto;
+    }
+
+    footer strong { color:var(--gold); }
+
+    @media (max-width:850px) {
+      .hero,
+      .form-grid {
+        grid-template-columns:1fr;
+      }
+
+      .hero-graphic { min-height:220px; }
+
+      .facts,
+      .features {
+        grid-template-columns:repeat(2,1fr);
+      }
+    }
+
+    @media (max-width:590px) {
+      .header-inner {
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      nav { justify-content:flex-start; }
+
+      main {
+        width:min(100% - 22px,1120px);
+        margin-top:18px;
+      }
+
+      section,
+      .hero {
+        border-radius:14px;
+      }
+
+      .facts,
+      .features,
+      .sources {
+        grid-template-columns:1fr;
+      }
+
+      .heading {
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .hero h1 {
+        letter-spacing:-1px;
+      }
+    }
+    /* Visible keyboard focus */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #f5b942;
+  outline-offset: 3px;
+}
+
+/* Prevent images from overflowing */
+img {
+  max-width: 100%;
+}
+
+/* Consistent font for form controls */
+input,
+button {
+  font: inherit;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+  </style>
+</head>
+
+<body>
+  <body>
+
+  <div class="notice" role="note">
+    Independent student-created website. This is not an
+    official school website. For verified admissions,
+    notices and circulars, visit the official
+    Delhi Directorate of Education website.
+  </div>
+
+  <div class="notice">
+    For verified notices, admissions and circulars,
+    consult the Delhi Directorate of Education.
+  </div>
+
+  <div class="notice">
+    For verified notices, admissions and circulars, consult the Delhi Directorate of Education.
+  </div>
+
+  <header>
+    <div class="header-inner">
+      <img class="logo" src="cm-shri-school-logo.jpeg" alt="CM SHRI School logo">
+
+      <div class="brand">
+        <strong>Dr. B. R. Ambedkar CM SHRI School</strong>
+        <small>Sector 19, Dwarka · ज्ञानं प्रगति मार्गः</small>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#school">School Profile</a>
+      <a href="#campus">Campus</a>
+      <a href="#updates">Updates</a>
+      <a href="#registration">Registration</a>
+      <a href="#sources">Sources</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div>
+        <p class="eyebrow">SCHOOL INFORMATION PORTAL</p>
+
+        <h1>
+          Clear updates for a <span>connected</span> school community.
+        </h1>
+
+        <p class="hero-text">
+          Explore the school profile, academic pathways, campus initiatives,
+          verified public records and important information in one organised place.
+        </p>
+
+        <a class="button" href="#school">Explore School Profile</a>
+      </div>
+
+      <div class="hero-graphic">
+        <div class="hero-logo">
+          <img src="cm-shri-school-logo.jpeg" alt="CM SHRI School logo">
+        </div>
+
+        <div class="school-card">
+          <p>SECTOR 19 · DWARKA</p>
+          <h2>DBRA CM SHRI School</h2>
+          <small>Government · Co-educational · Senior Secondary</small>
+        </div>
+      </div>
+    </section>
+
+    <section id="school">
+      <div class="heading">
+        <div>
+          <p class="eyebrow">PUBLIC DIRECTORY INFORMATION</p>
+          <h2>School Profile</h2>
+        </div>
+
+        <p>
+          These details are based on public Delhi Directorate of Education and
+          CBSE records. Verify them before any official use.
+        </p>
+      </div>
+
+      <div class="facts">
+        <article class="fact">
+          <span>School ID</span>
+          <strong>1821285</strong>
+        </article>
+
+        <article class="fact">
+          <span>School Type</span>
+          <strong>Government, Co-educational, Senior Secondary</strong>
+        </article>
+
+        <article class="fact">
+          <span>CBSE Affiliation</span>
+          <strong>2756191</strong>
+        </article>
+
+        <article class="fact">
+          <span>Location</span>
+          <strong>Sector 19, Dwarka, New Delhi – 110075</strong>
+        </article>
+      </div>
+    </section>
+
+    <section id="campus">
+      <div class="heading">
+        <div>
+          <p class="eyebrow">SCHOOL EXPERIENCE</p>
+          <h2>Campus Highlights</h2>
+        </div>
+
+        <p>
+          Designed to make the school’s learning environment, opportunities
+          and updates easy to explore.
+        </p>
+      </div>
+
+      <div class="features">
+        <article class="feature">
+          <div class="feature-top">✦</div>
+          <div class="feature-body">
+            <h3>Creative Learning Spaces</h3>
+            <p>
+              Share school-approved updates about campus décor, display boards,
+              exhibitions and student work.
+            </p>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div class="feature-top">✓</div>
+          <div class="feature-body">
+            <h3>Campus Care</h3>
+            <p>
+              Keep families informed about maintenance, cleanliness drives,
+              facility improvements and safety updates.
+            </p>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div class="feature-top">◉</div>
+          <div class="feature-body">
+            <h3>Digital Notice Board</h3>
+            <p>
+              Bring important circulars, events and announcements together
+              in one easy-to-find place.
+            </p>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div class="feature-top">⌁</div>
+          <div class="feature-body">
+            <h3>STEM Pathway</h3>
+            <p>
+              The 2026–27 CM SHRI document lists STEM courses for Class XI
+              at the Sector 19 school.
+            </p>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div class="feature-top">₹</div>
+          <div class="feature-body">
+            <h3>Finance Pathway</h3>
+            <p>
+              The same public document lists Finance courses among the
+              available Class XI pathways.
+            </p>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div class="feature-top">✺</div>
+          <div class="feature-body">
+            <h3>Arts & Performance</h3>
+            <p>
+              Visual and Performing Arts / Film Making, Acting & Media Studies
+              are listed as an available Class XI pathway.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="updates">
+      <div class="heading">
+        <div>
+          <p class="eyebrow">NOTICE BOARD</p>
+          <h2>Information & Updates</h2>
+        </div>
+
+        <p>
+          For live admission dates, circulars, and notices, use the official
+          Directorate of Education website.
+        </p>
+      </div>
+
+      <div class="updates">
+        <article class="update">
+          <span class="number">1</span>
+          <div>
+            <h3>Senior secondary school</h3>
+            <p>
+              Public Delhi Directorate of Education and CBSE records list the
+              school as a government, co-educational senior-secondary institution
+              in Sector 19, Dwarka.
+            </p>
+          </div>
+        </article>
+
+        <article class="update">
+          <span class="number">2</span>
+          <div>
+            <h3>Established campus record</h3>
+            <p>
+              The CBSE affiliation record for this campus lists the year of
+              foundation as 2017 and the affiliation period as 2024 to 2029.
+            </p>
+          </div>
+        </article>
+
+        <article class="update">
+          <span class="number">3</span>
+          <div>
+            <h3>Academic pathways</h3>
+            <p>
+              The 2026–27 CM SHRI admission document lists STEM, Finance and
+              PVA pathways for Class XI at School ID 1821285.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="registration">
+      <div class="heading">
+        <div>
+          <p class="eyebrow">REGISTRATION ENQUIRY</p>
+          <h2>Registration Form</h2>
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <form
+          id="registrationForm"
+          action="https://formspree.io/f/mppwapwr"
+          method="POST"
+        >
+          <input
+            type="hidden"
+            name="form_name"
+            value="DBRA CM SHRI School Registration Enquiry"
+          >
+
+          <label for="studentName">Student Name</label>
+          <input id="studentName" name="student_name" type="text" required>
+
+          <label for="className">Class</label>
+          <input
+            id="className"
+            name="class"
+            type="text"
+            placeholder="Example: Class 9"
+            required
+          >
+
+          <label for="mobileNumber">Mobile Number</label>
+          <input
+            id="mobileNumber"
+            name="mobile_number"
+            type="tel"
+            inputmode="numeric"
+            pattern="[0-9]{10}"
+            maxlength="10"
+            placeholder="10-digit number"
+            required
+          >
+
+          <button id="submitButton" class="button" type="submit">
+            Send Registration Enquiry
+          </button>
+
+          <p id="formMessage" class="form-message" aria-live="polite"></p>
+        </form>
+
+        <aside class="form-note">
+          <h3>Before you submit</h3>
+
+          <p>
+            Submitting this form sends the details to the email inbox configured
+            for the website.
+          </p>
+
+          <p>
+            Please use accurate information. Final admission decisions,
+            eligibility and official notices are issued by the Delhi Directorate
+            of Education.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="sources">
+      <div class="heading">
+        <div>
+          <p class="eyebrow">OFFICIAL SOURCES</p>
+          <h2>Verify Information</h2>
+        </div>
+
+        <p>
+          Use these official pages when checking current school or admission information.
+        </p>
+      </div>
+
+      <div class="sources">
+        <a
+          class="source"
+          href="https://www.edudel.nic.in/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Delhi Directorate of Education
+          <small>
+            Official Delhi education notices, admissions, and school information.
+          </small>
+        </a>
+
+        <a
+          class="source"
+          href="https://saras.cbse.gov.in/SARAS/AffiliatedList/AfflicationDetails/2756191"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          CBSE School Affiliation Record
+          <small>
+            Public affiliation details for Dr B R Ambedkar CM SHRI School.
+          </small>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>Dr. B. R. Ambedkar CM SHRI School, Sector 19, Dwarka</strong></p>
+    <p>
+      ज्ञानं प्रगति मार्गः · For official notices and admission information,
+      please refer to the Directorate of Education.
+    </p>
+  </footer>
+
+  <script>
+    const registrationForm = document.getElementById("registrationForm");
+    const formMessage = document.getElementById("formMessage");
+    const submitButton = document.getElementById("submitButton");
+
+    registrationForm.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      formMessage.style.color = "";
+      formMessage.textContent = "Sending notification…";
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending…";
+
+      try {
+        const response = await fetch(registrationForm.action, {
+          method: "POST",
+          body: new FormData(registrationForm),
+          headers: {
+            Accept: "application/json"
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error("The form service could not accept this submission.");
+        }
+
+        formMessage.textContent =
+          "Registration sent successfully. Check the configured email inbox.";
+
+        registrationForm.reset();
+      } catch (error) {
+        formMessage.textContent =
+          "It could not be sent. Check the internet connection and Formspree form settings.";
+
+        formMessage.style.color = "#b42318";
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = "Send Registration Enquiry";
+      }
+    });
+  </script>
+</body>
+</html>
